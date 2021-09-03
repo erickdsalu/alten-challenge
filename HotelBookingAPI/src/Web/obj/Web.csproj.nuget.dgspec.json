@@ -4,14 +4,14 @@
     "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj": {
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj",
-        "projectName": "Web",
-        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj",
+        "projectName": "Extensions",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj",
         "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\obj\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,10 +39,405 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
+              },
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\DependencyInjection.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\DependencyInjection.csproj",
+        "projectName": "DependencyInjection",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\DependencyInjection.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\Application.csproj"
+              },
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\Persistence.DynamoDb.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\Persistence.DynamoDb.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.7.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\Persistence.DynamoDb.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\Persistence.DynamoDb.csproj",
+        "projectName": "Persistence.DynamoDb",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\Persistence.DynamoDb.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.7.0.57, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
+              },
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj",
+        "projectName": "Web",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\DependencyInjection.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\DependencyInjection.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Amazon.Lambda.AspNetCoreServer": {
               "target": "Package",
               "version": "[5.3.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.1, )"
             }
           },
           "imports": [

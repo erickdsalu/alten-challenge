@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "IMMwZQ/DQ2b0bfb51PqJhKL8P5j+J1Sv+lA2v36GEx24OKy25dpY2x2cUtZaPg/WHmhmADWSHMdUbDDas9yXug==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\DependencyInjection\\DependencyInjection.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vostro\\.nuget\\packages\\awssdk.core\\3.7.2.8\\awssdk.core.3.7.2.8.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.0.57\\awssdk.dynamodbv2.3.7.0.57.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\awssdk.extensions.netcore.setup\\3.7.1\\awssdk.extensions.netcore.setup.3.7.1.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\microsoft.extensions.configuration.binder\\5.0.0\\microsoft.extensions.configuration.binder.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vostro\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

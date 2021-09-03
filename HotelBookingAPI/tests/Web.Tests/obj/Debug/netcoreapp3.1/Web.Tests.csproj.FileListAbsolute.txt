@@ -1,0 +1,6 @@
+C:\Users\Vostro\source\repos\alten-challenge\HotelBookingAPI\tests\Web.Tests\obj\Debug\netcoreapp3.1\Web.Tests.csproj.AssemblyReference.cache
+C:\Users\Vostro\source\repos\alten-challenge\HotelBookingAPI\tests\Web.Tests\obj\Debug\netcoreapp3.1\Web.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vostro\source\repos\alten-challenge\HotelBookingAPI\tests\Web.Tests\obj\Debug\netcoreapp3.1\Web.Tests.AssemblyInfoInputs.cache
+C:\Users\Vostro\source\repos\alten-challenge\HotelBookingAPI\tests\Web.Tests\obj\Debug\netcoreapp3.1\Web.Tests.AssemblyInfo.cs
+C:\Users\Vostro\source\repos\alten-challenge\HotelBookingAPI\tests\Web.Tests\obj\Debug\netcoreapp3.1\Web.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Vostro\source\repos\alten-challenge\HotelBookingAPI\tests\Web.Tests\obj\Debug\netcoreapp3.1\Web.Tests.MvcApplicationPartsAssemblyInfo.cache

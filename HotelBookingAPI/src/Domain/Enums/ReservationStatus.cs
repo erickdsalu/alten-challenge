@@ -6,5 +6,9 @@ namespace Domain.Enums
 {
     public enum ReservationStatus
     {
+        Scheduled,
+        Past,
+        Ongoing,
+        Canceled
     }
 }

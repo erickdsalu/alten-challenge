@@ -25,14 +25,18 @@ Execute migrate-tables.ps1 (PowerShell) or migrate-tables.sh (Unix Shell) script
 Run the aws cli command below to add configuration itens at Configuration table
 
 ```sh
-aws dynamodb put-item --table-name Configurations --item file://tables/Configuration.json --endpoint-url http://localhost:8000
+aws dynamodb put-item --table-name Configurations --item file://tables/Configurations.json --endpoint-url http://localhost:8000
 ```
 
 ## Running Application
+
+At the solution folder we can run the Web API project
+
 ```
 dotnet run --project src/Webdotnet run --project src/Web
 ```
 ## Discovering API
+
 After running the application, all endpoint documentation will be accessible under swagger
 ```
 https://localhost:5001/swagger

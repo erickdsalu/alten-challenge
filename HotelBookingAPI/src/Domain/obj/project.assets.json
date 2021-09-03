@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "Extensions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Extensions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Extensions.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Extensions/1.0.0": {
+      "type": "project",
+      "path": "../../Extensions/Extensions.csproj",
+      "msbuildProject": "../../Extensions/Extensions.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Extensions >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Vostro\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
+              "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

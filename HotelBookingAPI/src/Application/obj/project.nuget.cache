@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AsmSS5efo5woTYrhYOk7dRKbYN1EFO0wGp77tWaxdLVnnuLlVJkN4WAxy0uhFivKmpPwHCxpvxkaoCQz8haNLA==",
+  "dgSpecHash": "IXY7YAEbqyR712GOK7e30su+RlUDHLyN4yIViM5gLr1FdNVEHx09XXxrWg5TDvr92cVDEiPSq4Hh6e7Id6+/3g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Vostro\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
