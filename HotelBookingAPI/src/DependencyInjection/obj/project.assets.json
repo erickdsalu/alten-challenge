@@ -420,8 +420,8 @@
     },
     "Extensions/1.0.0": {
       "type": "project",
-      "path": "../../Extensions/Extensions.csproj",
-      "msbuildProject": "../../Extensions/Extensions.csproj"
+      "path": "../Extensions/Extensions.csproj",
+      "msbuildProject": "../Extensions/Extensions.csproj"
     },
     "Persistence/1.0.0": {
       "type": "project",

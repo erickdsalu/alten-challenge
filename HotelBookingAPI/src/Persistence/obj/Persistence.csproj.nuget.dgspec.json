@@ -4,14 +4,14 @@
     "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj",
-        "projectName": "Extensions",
-        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj",
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\obj\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -58,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj": {
+    "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj",
-        "projectName": "Domain",
-        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj",
+        "projectName": "Extensions",
+        "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj",
         "packagesPath": "C:\\Users\\Vostro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vostro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,11 +85,7 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
-                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -140,11 +140,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
-                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
-              },
               "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj"
               }
             }
           }

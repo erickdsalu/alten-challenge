@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TIQzDXe1ksCfnsNkjKK+jWdaqMF+1JzUZQ+6y+N0eZNKG4SuZCJqmTx4VbAMRM8BbPfGaLveMwe9GWZPFkc7Fg==",
+  "dgSpecHash": "TZgIrY+VRZmmcMOkFCs5q+KI4cPyq5rtmQBhMbCFbXQ34q/Mrh2CwNV5R/ksyLbpqYhxoNERyDTq4n8rEa1b5g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Persistence.DynamoDb\\Persistence.DynamoDb.csproj",
   "expectedPackageFiles": [

@@ -35,8 +35,8 @@
     },
     "Extensions/1.0.0": {
       "type": "project",
-      "path": "../../Extensions/Extensions.csproj",
-      "msbuildProject": "../../Extensions/Extensions.csproj"
+      "path": "../Extensions/Extensions.csproj",
+      "msbuildProject": "../Extensions/Extensions.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -72,11 +72,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj": {
-              "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\Extensions\\Extensions.csproj"
-            },
             "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj": {
+              "projectPath": "C:\\Users\\Vostro\\source\\repos\\alten-challenge\\HotelBookingAPI\\src\\Extensions\\Extensions.csproj"
             }
           }
         }

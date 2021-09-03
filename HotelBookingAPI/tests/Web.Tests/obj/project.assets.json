@@ -7666,8 +7666,8 @@
     },
     "Extensions/1.0.0": {
       "type": "project",
-      "path": "../../Extensions/Extensions.csproj",
-      "msbuildProject": "../../Extensions/Extensions.csproj"
+      "path": "../../src/Extensions/Extensions.csproj",
+      "msbuildProject": "../../src/Extensions/Extensions.csproj"
     },
     "Persistence/1.0.0": {
       "type": "project",
