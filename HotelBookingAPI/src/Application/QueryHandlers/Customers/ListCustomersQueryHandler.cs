@@ -26,6 +26,10 @@ namespace Application.QueryHandlers.Customers
         {
             var customers = await _customersRepository.ListCustomers(request, request.Active);
 
+            if (customers.Count == 0)
+                throw new CustomNotificationException(HttpStatusCode.NotFound,
+                        $"There is no customers that match your search criteria");
+
             return customers.AsApplicationModel();
         }
     }

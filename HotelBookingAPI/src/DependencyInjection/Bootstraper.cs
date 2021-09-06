@@ -37,6 +37,8 @@ namespace DependencyInjection
 
             services.AddScoped<IReservationsRepository, ReservationsTable>();
             services.AddScoped<IConfigurationsRepository, ConfigurationsTable>();
+            services.AddScoped<IRoomsRepository, RoomsTable>();
+            services.AddScoped<ICustomersRepository, CustomersTable>();
         }
     }
 }

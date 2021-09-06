@@ -5,6 +5,6 @@ namespace Persistence.Interfaces
 {
     public interface IConfigurationsRepository
     {
-        public Task<HotelConfiguration> GetHotelConfiguration();
+        public Task<Configuration> GetHotelConfiguration();
     }
 }

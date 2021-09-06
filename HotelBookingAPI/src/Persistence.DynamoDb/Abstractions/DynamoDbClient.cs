@@ -51,7 +51,7 @@ namespace Persistence.DynamoDb.Abstractions
             });
         }
 
-        public async Task<PageModel<T>> Scan(PagingRequest pagingRequest, bool? active = null)
+        public async Task<PageModel<T>> Scan(PagingRequest pagingRequest, bool filterByStartEndDate, bool? active = null)
         {
             bool shouldKeepLooking = true;
             PageModel<T> pageResult = new PageModel<T>
@@ -74,53 +74,49 @@ namespace Persistence.DynamoDb.Abstractions
                                 S = pagingRequest.LastIndex
                             }
                         }
-                    }
+                    },
+                    ExpressionAttributeValues = new Dictionary<string, AttributeValue>()
                 };
 
-                if (pagingRequest.StartDate.HasValue && pagingRequest.EndDate.HasValue)
+                if (filterByStartEndDate && pagingRequest.StartDate.HasValue && pagingRequest.EndDate.HasValue)
                 {
-                    scanRequest.FilterExpression = "StartDate BETWEEN :startDate AND :endDate Or EndDate BETWEEN :startDate AND :endDate";
-                    scanRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue>
-                    {
-                        { ":startDate", new AttributeValue{ S = pagingRequest.StartDate.Value.ToString("yyyy-MM-dd") } },
-                        { ":endDate", new AttributeValue{ S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") } }
-                    };
+                    scanRequest.FilterExpression = "(StartDate BETWEEN :startDate AND :endDate Or EndDate BETWEEN :startDate AND :endDate)";
+                    scanRequest.ExpressionAttributeValues.Add(":startDate", new AttributeValue { S = pagingRequest.StartDate.Value.ToString("yyyy-MM-dd") });
+                    scanRequest.ExpressionAttributeValues.Add(":endDate", new AttributeValue { S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") });
                 }
-                else if (pagingRequest.StartDate.HasValue)
+                else if (filterByStartEndDate && pagingRequest.StartDate.HasValue)
                 {
-                    scanRequest.FilterExpression = "StartDate > :startDate Or EndDate > :startDate";
-                    scanRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue>
-                    {
-                        { ":startDate", new AttributeValue{ S = pagingRequest.StartDate.Value.ToString("yyyy-MM-dd") } }
-                    };
+                    scanRequest.FilterExpression = "(StartDate > :startDate Or EndDate > :startDate)";
+                    scanRequest.ExpressionAttributeValues.Add(":startDate", new AttributeValue { S = pagingRequest.StartDate.Value.ToString("yyyy-MM-dd") });
                 }
-                else if (pagingRequest.StartDate.HasValue)
+                else if (filterByStartEndDate && pagingRequest.StartDate.HasValue)
                 {
-                    scanRequest.FilterExpression = "StartDate < :endDate";
-                    scanRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue>
-                    {
-                        { ":endDate", new AttributeValue{ S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") } }
-                    };
+                    scanRequest.FilterExpression = "(StartDate < :endDate)";
+                    scanRequest.ExpressionAttributeValues.Add(":endDate", new AttributeValue { S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") });
                 }
 
-                if (pagingRequest.ExcludentIds.Any())
+                if (pagingRequest.ExcludentIds != null && pagingRequest.ExcludentIds.Any())
                 {
                     scanRequest.FilterExpression += string.IsNullOrEmpty(scanRequest.FilterExpression) ? "" : " And";
-                    scanRequest.FilterExpression += $"NOT ({HashKey} in ({string.Join("", pagingRequest.ExcludentIds)}))";
+
+                    scanRequest.FilterExpression += $"NOT ({HashKey} in (";
+                    foreach (var item in pagingRequest.ExcludentIds.Select((value, i) => new { i, value }))
+                    {
+                        scanRequest.FilterExpression += $":excludentId{item.i}";
+                        scanRequest.ExpressionAttributeValues.Add($":excludentId{item.i}", new AttributeValue { S = item.value });
+                    }
+                    scanRequest.FilterExpression += "))";
                 }
 
                 if (active.HasValue)
                 {
-                    scanRequest.FilterExpression += string.IsNullOrEmpty(scanRequest.FilterExpression) ? "" : " And";
-                    scanRequest.FilterExpression += $"IsActive = :isActive";
-                    scanRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue>
-                    {
-                        { ":isActive", new AttributeValue{ BOOL = active.Value } }
-                    };
+                    scanRequest.FilterExpression += string.IsNullOrEmpty(scanRequest.FilterExpression) ? "" : " And ";
+                    scanRequest.FilterExpression += $"(IsActive = :isActive)";
+
+                    scanRequest.ExpressionAttributeValues.Add(":isActive", new AttributeValue { BOOL = active.Value });
                 }
 
                 var result = await Database.ScanAsync(scanRequest);
-
 
                 var itemList = result.Items.Select(item => item.Any<KeyValuePair<string, AttributeValue>>() ?
                 JsonConvert.DeserializeObject<T>(Document.FromAttributeMap(item).ToJson()) : (T)default);
@@ -157,8 +153,8 @@ namespace Persistence.DynamoDb.Abstractions
             return pageResult;
         }
 
-        public async Task<PageModel<T>> Query(PagingRequest pagingRequest, string hashKeyValue,
-            string globalSecondaryIndexName = "", string globalSecondaryIndexKey = "", string globalSecondaryIndexValue = "")
+        public async Task<PageModel<T>> Query(PagingRequest pagingRequest, bool filterByStartEndDate, string hashKeyValue,
+            string globalSecondaryIndexName = "", string globalSecondaryIndexKey = "", string globalSecondaryIndexValue = "", bool? active = null)
         {
             bool shouldKeepLooking = true;
             PageModel<T> pageResult = new PageModel<T>
@@ -188,36 +184,39 @@ namespace Persistence.DynamoDb.Abstractions
                     },
                     ExpressionAttributeValues = new Dictionary<string, AttributeValue> {
                         { ":hashKeyValue", new AttributeValue{ S = hashKeyValue } }
-                    },
+                    }
                 };
 
                 if (!string.IsNullOrEmpty(globalSecondaryIndexName))
                 {
                     queryRequest.IndexName = globalSecondaryIndexName;
                     queryRequest.KeyConditionExpression = $"#HashKey = :hashKeyValue";
-                    queryRequest.ExpressionAttributeNames = new Dictionary<string, string> {
-                        {"#HashKey", globalSecondaryIndexKey}
-                    };
-                    queryRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue> {
-                        { ":hashKeyValue", new AttributeValue{ S = globalSecondaryIndexValue } }
-                    };
+                    queryRequest.ExpressionAttributeNames.Add("#HashKey", globalSecondaryIndexKey);
+                    queryRequest.ExpressionAttributeValues.Add(":hashKeyValue", new AttributeValue { S = globalSecondaryIndexValue });
                 }
 
-                if (pagingRequest.StartDate.HasValue && pagingRequest.EndDate.HasValue)
+                if (filterByStartEndDate && pagingRequest.StartDate.HasValue && pagingRequest.EndDate.HasValue)
                 {
-                    queryRequest.FilterExpression = "StartDate BETWEEN :startDate AND :endDate Or EndDate BETWEEN :startDate AND :endDate";
+                    queryRequest.FilterExpression = "(StartDate BETWEEN :startDate AND :endDate Or EndDate BETWEEN :startDate AND :endDate)";
                     queryRequest.ExpressionAttributeValues.Add(":startDate", new AttributeValue { S = pagingRequest.StartDate.Value.ToString("yyyy-MM-dd") });
                     queryRequest.ExpressionAttributeValues.Add(":endDate", new AttributeValue { S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") });
                 }
-                else if (pagingRequest.StartDate.HasValue)
+                else if (filterByStartEndDate && pagingRequest.StartDate.HasValue)
                 {
-                    queryRequest.FilterExpression = "StartDate > :startDate Or EndDate > :startDate";
+                    queryRequest.FilterExpression = "(StartDate > :startDate Or EndDate > :startDate)";
                     queryRequest.ExpressionAttributeValues.Add(":startDate", new AttributeValue { S = pagingRequest.StartDate.Value.ToString("yyyy-MM-dd") });
                 }
-                else if (pagingRequest.StartDate.HasValue)
+                else if (filterByStartEndDate && pagingRequest.StartDate.HasValue)
                 {
-                    queryRequest.FilterExpression = "StartDate < :endDate";
+                    queryRequest.FilterExpression = "(StartDate < :endDate)";
                     queryRequest.ExpressionAttributeValues.Add(":endDate", new AttributeValue { S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") });
+                }
+
+                if (active.HasValue)
+                {
+                    queryRequest.FilterExpression += string.IsNullOrEmpty(queryRequest.FilterExpression) ? "" : " And ";
+                    queryRequest.FilterExpression += $"(IsActive = :isActive)";
+                    queryRequest.ExpressionAttributeValues.Add(":isActive", new AttributeValue { BOOL = active.Value });
                 }
 
                 var result = await Database.QueryAsync(queryRequest);

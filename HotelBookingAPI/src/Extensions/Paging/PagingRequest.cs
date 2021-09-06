@@ -1,6 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Application")]
+[assembly: InternalsVisibleTo("Persistence.DynamoDb")]
 
 namespace Extensions.Paging
 {
@@ -10,6 +12,6 @@ namespace Extensions.Paging
         public DateTime? EndDate { get; set; }
         public int Limit { get; set; } = 100;
         public string LastIndex { get; set; }
-        public string[] ExcludentIds { get; set; }
+        internal string[] ExcludentIds { get; set; }
     }
 }

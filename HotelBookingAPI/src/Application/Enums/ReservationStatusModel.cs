@@ -6,5 +6,8 @@ namespace Application.Enums
 {
     public enum ReservationStatusModel
     {
+        Scheduled,
+        Past,
+        Ongoing
     }
 }

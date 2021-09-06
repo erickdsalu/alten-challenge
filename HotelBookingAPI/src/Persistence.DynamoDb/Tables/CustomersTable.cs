@@ -3,12 +3,14 @@ using Domain.Models;
 using Extensions.Paging;
 using Persistence.DynamoDb.Abstractions;
 using Persistence.Interfaces;
+using Persistence.Mappers;
+using Persistence.Models;
 using System;
 using System.Threading.Tasks;
 
 namespace Persistence.DynamoDb.Tables
 {
-    public class CustomersTable : DynamoDbClient<Customer>, ICustomersRepository
+    public class CustomersTable : DynamoDbClient<CustomerPersistence>, ICustomersRepository
     {
         public override string HashKey => "Id";
 
@@ -20,17 +22,17 @@ namespace Persistence.DynamoDb.Tables
 
         public async Task SaveCustomer(Customer customer)
         {
-            await PutItem(customer);
+            await PutItem(customer.AsPersistence());
         }
 
         public async Task<PageModel<Customer>> ListCustomers(PagingRequest pagingRequest, bool? active = null)
         {
-            return await Scan(pagingRequest);
+            return (await Scan(pagingRequest, false, active)).AsDomainModel();
         }
 
         public async Task<Customer> GetCustomer(Guid customerId)
         {
-            return await GetItemById(customerId.ToString());
+            return (await GetItemById(customerId.ToString())).AsDomainModel();
         }
     }
 }

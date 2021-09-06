@@ -19,6 +19,8 @@ namespace Application.Mappers
 
         public static RoomModel AsApplicationModel(this Room room)
         {
+            if (room is null)
+                return null;
             return new RoomModel
             {
                 Id = room.Id,

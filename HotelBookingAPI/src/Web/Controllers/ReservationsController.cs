@@ -80,7 +80,7 @@ namespace Web.Controllers
         }
 
         // POST api/values
-        [HttpPost]
+        [HttpPut]
         public async Task<ActionResult> Put([FromBody] UpdateReservationRequest request)
         {
             var command = new UpdateReservationCommand

@@ -8,7 +8,6 @@ namespace Domain.Enums
     {
         Scheduled,
         Past,
-        Ongoing,
-        Canceled
+        Ongoing
     }
 }

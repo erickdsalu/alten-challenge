@@ -19,6 +19,8 @@ namespace Application.Mappers
 
         public static ReservationModel AsApplicationModel(this Reservation reservation)
         {
+            if (reservation is null)
+                return null;
             return new ReservationModel
             {
                 Id = reservation.ReservationId,

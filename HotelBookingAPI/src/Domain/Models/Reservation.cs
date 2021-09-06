@@ -15,8 +15,9 @@ namespace Domain.Models
         public ReservationStatus Status { get; private set; }
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
+        public bool IsActive { get; private set; }
 
-        public Reservation(Guid reservationId, Guid customerId, Guid roomId, ReservationStatus status, DateTime startDate, DateTime endDate)
+        public Reservation(Guid reservationId, Guid customerId, Guid roomId, ReservationStatus status, DateTime startDate, DateTime endDate, bool isActive)
         {
             ReservationId = reservationId;
             CustomerId = customerId;
@@ -24,6 +25,7 @@ namespace Domain.Models
             Status = status;
             StartDate = startDate;
             EndDate = endDate;
+            IsActive = isActive;
         }
 
         public static Reservation GenerateReservation(Guid customerId, Guid roomId, DateTime startDate, DateTime endDate)
@@ -35,11 +37,12 @@ namespace Domain.Models
                 roomId,
                 ReservationStatus.Scheduled,
                 startDate,
-                endDate
+                endDate,
+                true
             );
         }
 
-        public void ValidateReservation(HotelConfiguration configuration)
+        public void ValidateReservation(Configuration configuration)
         {
             var errorMessage = new StringBuilder();
 
@@ -79,12 +82,17 @@ namespace Domain.Models
                 throw new CustomNotificationException(HttpStatusCode.BadRequest, errorMessage.ToString());
         }
 
-        public void UpdateReservation(HotelConfiguration configuration, DateTime? startDate, DateTime? endDate)
+        public void UpdateReservation(Configuration configuration, DateTime? startDate, DateTime? endDate)
         {
             StartDate = startDate ?? StartDate;
             EndDate = endDate ?? EndDate;
 
             ValidateReservation(configuration);
+        }
+
+        public void CancelReservation()
+        {
+            IsActive = false;
         }
     }
 }

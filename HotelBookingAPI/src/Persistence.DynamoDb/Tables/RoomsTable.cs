@@ -25,7 +25,7 @@ namespace Persistence.DynamoDb.Tables
 
         public async Task<PageModel<Room>> ListRooms(PagingRequest pagingRequest)
         {
-            return await Scan(pagingRequest);
+            return await Scan(pagingRequest, false);
         }
 
         public async Task<Room> GetRoom(Guid roomId)

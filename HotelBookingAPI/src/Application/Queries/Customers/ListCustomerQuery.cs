@@ -9,6 +9,6 @@ namespace Application.Queries.Customers
 {
     public class ListCustomersQuery : PagingRequest, IRequest<PageModel<CustomerModel>>
     {
-        public bool Active { get; set; }
+        public bool? Active { get; set; }
     }
 }

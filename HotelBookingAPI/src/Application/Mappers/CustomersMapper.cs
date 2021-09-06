@@ -22,6 +22,8 @@ namespace Application.Mappers
 
         public static CustomerModel AsApplicationModel(this Customer customer)
         {
+            if (customer is null)
+                return null;
             return new CustomerModel
             {
                 Id = customer.Id,

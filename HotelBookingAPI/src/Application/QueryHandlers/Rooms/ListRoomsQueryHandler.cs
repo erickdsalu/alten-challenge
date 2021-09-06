@@ -29,10 +29,14 @@ namespace Application.QueryHandlers.Rooms
             if (request.OnlyAvailableRooms && !(request.StartDate.HasValue && request.EndDate.HasValue))
                 throw new CustomNotificationException(HttpStatusCode.BadRequest, $"StartDate or EndDate is required for OnlyAvailableRooms searching");
 
-            if ((request.StartDate.HasValue || request.EndDate.HasValue) && await _reservationsRepository.ListReservations(request) is var reservations)
+            if (request.OnlyAvailableRooms && (request.StartDate.HasValue || request.EndDate.HasValue) && await _reservationsRepository.ListReservations(request) is var reservations)
                 request.ExcludentIds = reservations.Items.Select(x => x.RoomId.ToString()).ToArray();
 
             var rooms = await _roomsRepository.ListRooms(request);
+
+            if (rooms.Count == 0)
+                throw new CustomNotificationException(HttpStatusCode.NotFound,
+                        $"There is no rooms that match your search criteria");
 
             return rooms.AsApplicationModel();
         }
