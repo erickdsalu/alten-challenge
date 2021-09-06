@@ -10,22 +10,15 @@ At folder "infra" will be the .yml file to run on docker-compose
 
 ```sh
 cd infra
-docker compose up -d
+docker-compose up -d (version 3.3)
+docker compose up -d (version 3.8+)
 ```
 ## Migrate Database
 
-Execute migrate-tables.ps1 (PowerShell) or migrate-tables.sh (Unix Shell) script for creating tables
+Execute migrate-tables.ps1 (PowerShell) or migrate-tables.sh (Shell) script for creating tables and initial data migration
 
 ```sh
 .\migrate-tables.ps1
-```
-
-## Migrate Data
-
-Run the aws cli command below to add configuration itens at Configuration table
-
-```sh
-aws dynamodb put-item --table-name Configurations --item file://tables/Configurations.json --endpoint-url http://localhost:8000
 ```
 
 ## Running Application

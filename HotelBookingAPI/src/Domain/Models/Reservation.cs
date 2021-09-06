@@ -78,5 +78,13 @@ namespace Domain.Models
             if (errorMessage.Length > 0)
                 throw new CustomNotificationException(HttpStatusCode.BadRequest, errorMessage.ToString());
         }
+
+        public void UpdateReservation(HotelConfiguration configuration, DateTime? startDate, DateTime? endDate)
+        {
+            StartDate = startDate ?? StartDate;
+            EndDate = endDate ?? EndDate;
+
+            ValidateReservation(configuration);
+        }
     }
 }

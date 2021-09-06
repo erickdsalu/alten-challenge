@@ -6,7 +6,8 @@ using Application.Queries.Reservations;
 using Extensions.Paging;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Web.ApiModels.Requests.Reservation;
+using Web.ApiModels.Requests.Reservations;
+using Web.Mappers;
 
 namespace Web.Controllers
 {
@@ -40,7 +41,7 @@ namespace Web.Controllers
             if (!result.Items.Any())
                 return NotFound();
 
-            return Ok(result);
+            return Ok(result.AsResponseModel());
         }
 
         // GET api/values/5
@@ -58,7 +59,7 @@ namespace Web.Controllers
             if (result == null)
                 return NotFound();
 
-            return Ok(result);
+            return Ok(result.AsResponseModel());
         }
 
         // POST api/values
@@ -69,8 +70,26 @@ namespace Web.Controllers
             {
                 CustomerId = request.CustomerId,
                 RoomId = request.RoomId,
-                StartDate = request.DateStart.Date,
-                EndDate = request.DateEnd.Date
+                StartDate = request.StartDate.Date,
+                EndDate = request.EndDate.Date
+            };
+
+            await _mediator.Send(command);
+
+            return NoContent();
+        }
+
+        // POST api/values
+        [HttpPost]
+        public async Task<ActionResult> Put([FromBody] UpdateReservationRequest request)
+        {
+            var command = new UpdateReservationCommand
+            {
+                ReservationId = request.ReservationId,
+                CustomerId = request.CustomerId,
+                RoomId = request.RoomId,
+                StartDate = request.StartDate.Date,
+                EndDate = request.EndDate.Date,
             };
 
             await _mediator.Send(command);

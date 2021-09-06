@@ -23,7 +23,7 @@ namespace Persistence.DynamoDb.Tables
             await PutItem(customer);
         }
 
-        public async Task<PageModel<Customer>> ListCustomers(PagingRequest pagingRequest)
+        public async Task<PageModel<Customer>> ListCustomers(PagingRequest pagingRequest, bool? active = null)
         {
             return await Scan(pagingRequest);
         }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Application.Models
+namespace Web.ApiModels.Responses.Rooms
 {
-    public class RoomModel
+    public class GetRoomResponse
     {
         public Guid Id { get; set; }
         public int Beds { get; set; }

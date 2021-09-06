@@ -1,14 +1,11 @@
 ﻿using Application.Models;
 using Domain.Models;
 using Extensions.Paging;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Application.Mappers
 {
-    public static class ReservationMapper
+    public static class ReservationsMapper
     {
 
         public static PageModel<ReservationModel> AsApplicationModel(this PageModel<Reservation> reservation)

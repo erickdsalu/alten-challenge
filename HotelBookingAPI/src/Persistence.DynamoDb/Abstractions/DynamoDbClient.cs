@@ -51,7 +51,7 @@ namespace Persistence.DynamoDb.Abstractions
             });
         }
 
-        public async Task<PageModel<T>> Scan(PagingRequest pagingRequest)
+        public async Task<PageModel<T>> Scan(PagingRequest pagingRequest, bool? active = null)
         {
             bool shouldKeepLooking = true;
             PageModel<T> pageResult = new PageModel<T>
@@ -100,6 +100,22 @@ namespace Persistence.DynamoDb.Abstractions
                     scanRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue>
                     {
                         { ":endDate", new AttributeValue{ S = pagingRequest.EndDate.Value.ToString("yyyy-MM-dd") } }
+                    };
+                }
+
+                if (pagingRequest.ExcludentIds.Any())
+                {
+                    scanRequest.FilterExpression += string.IsNullOrEmpty(scanRequest.FilterExpression) ? "" : " And";
+                    scanRequest.FilterExpression += $"NOT ({HashKey} in ({string.Join("", pagingRequest.ExcludentIds)}))";
+                }
+
+                if (active.HasValue)
+                {
+                    scanRequest.FilterExpression += string.IsNullOrEmpty(scanRequest.FilterExpression) ? "" : " And";
+                    scanRequest.FilterExpression += $"IsActive = :isActive";
+                    scanRequest.ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+                    {
+                        { ":isActive", new AttributeValue{ BOOL = active.Value } }
                     };
                 }
 
