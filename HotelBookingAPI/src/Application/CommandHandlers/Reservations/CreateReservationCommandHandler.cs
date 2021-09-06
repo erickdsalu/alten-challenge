@@ -14,21 +14,27 @@ namespace Application.CommandHandlers.Reservations
     {
         private readonly IConfigurationsRepository _configurationsRepository;
         private readonly IReservationsRepository _reservationRepository;
+        private readonly IRoomsRepository _roomsRepository;
 
         public CreateReservationCommandHandler(
-            IConfigurationsRepository configurationsRepository, IReservationsRepository reservationRepository)
+            IConfigurationsRepository configurationsRepository, IReservationsRepository reservationRepository, IRoomsRepository roomsRepository)
         {
             _reservationRepository = reservationRepository;
             _configurationsRepository = configurationsRepository;
+            _roomsRepository = roomsRepository;
         }
 
         public async Task<Unit> Handle(CreateReservationCommand request, CancellationToken cancellationToken)
         {
             var hotelConfiguration = await _configurationsRepository.GetHotelConfiguration();
+            var room = await _roomsRepository.GetRoom(request.RoomId);
             var reservation = Reservation.GenerateReservation(request.CustomerId, request.RoomId, request.StartDate, request.EndDate);
 
-
             reservation.ValidateReservation(hotelConfiguration);
+
+            if(room is null)
+                throw new CustomNotificationException(HttpStatusCode.NotFound,
+                    $"Room {request.RoomId} wasn't found");
 
             var reservationsAtSameInterval = await _reservationRepository.ListReservationsByRoom(
                 new PagingRequest

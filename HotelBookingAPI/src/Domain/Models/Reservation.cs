@@ -9,24 +9,34 @@ namespace Domain.Models
 {
     public class Reservation
     {
-        public Guid ReservationId { get; set; }
-        public Guid CustomerId { get; set; }
-        public Guid RoomId { get; set; }
-        public ReservationStatus Status { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public Guid ReservationId { get; private set; }
+        public Guid CustomerId { get; private set; }
+        public Guid RoomId { get; private set; }
+        public ReservationStatus Status { get; private set; }
+        public DateTime StartDate { get; private set; }
+        public DateTime EndDate { get; private set; }
 
-        public static Reservation GenerateReservation(Guid customerId, Guid roomId, DateTime dateStart, DateTime dateEnd)
+        public Reservation(Guid reservationId, Guid customerId, Guid roomId, ReservationStatus status, DateTime startDate, DateTime endDate)
+        {
+            ReservationId = reservationId;
+            CustomerId = customerId;
+            RoomId = roomId;
+            Status = status;
+            StartDate = startDate;
+            EndDate = endDate;
+        }
+
+        public static Reservation GenerateReservation(Guid customerId, Guid roomId, DateTime startDate, DateTime endDate)
         {
             return new Reservation
-            {
-                ReservationId = Guid.NewGuid(),
-                CustomerId = customerId,
-                RoomId = roomId,
-                StartDate = dateStart,
-                EndDate = dateEnd,
-                Status = ReservationStatus.Scheduled
-            };
+            (
+                Guid.NewGuid(),
+                customerId,
+                roomId,
+                ReservationStatus.Scheduled,
+                startDate,
+                endDate
+            );
         }
 
         public void ValidateReservation(HotelConfiguration configuration)

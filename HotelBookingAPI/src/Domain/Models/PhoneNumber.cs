@@ -6,10 +6,15 @@ namespace Domain.Models
 {
     public class PhoneNumber
     {
-        public string DDI { get; set; }
+        public string DDI { get; private set; }
+        public string DDD { get; private set; }
+        public string Number { get; private set; }
 
-        public string DDD { get; set; }
-
-        public string Number { get; set; }
+        public PhoneNumber(string dDI, string dDD, string number)
+        {
+            DDI = dDI;
+            DDD = dDD;
+            Number = number;
+        }
     }
 }
