@@ -1,7 +1,7 @@
 ## Pre-Requisites
 
-Docker Desktop - https://www.docker.com/products/docker-desktop
-AWS CLI - https://aws.amazon.com/pt/cli/
+Docker Desktop - https://www.docker.com/products/docker-desktop <br>
+AWS CLI - https://aws.amazon.com/pt/cli/ <br>
 .NET Core SDK 3.1 - https://dotnet.microsoft.com/download/dotnet/3.1
 
 ## Running Local DynamoDb
