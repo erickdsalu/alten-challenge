@@ -1,6 +1,7 @@
 ﻿using Application.Mappers;
 using Application.Models;
 using Application.Queries.Reservations;
+using Domain.Models;
 using Extensions.Exceptions;
 using Extensions.Paging;
 using MediatR;
@@ -24,9 +25,10 @@ namespace Application.QueryHandlers.Reservations
 
         public async Task<PageModel<ReservationModel>> Handle(ListReservationsQuery request, CancellationToken cancellationToken)
         {
-            if (request.RoomId.HasValue && await _reservationRepository.ListReservationsByRoom(request, request.RoomId.Value) is var reservations)
-                return reservations.AsApplicationModel();
+            PageModel<Reservation> reservations;
 
+            if (request.RoomId.HasValue)
+                reservations = await _reservationRepository.ListReservationsByRoom(request, request.RoomId.Value);
             else if (request.CustomerId.HasValue)
                 reservations = await _reservationRepository.ListReservationsByCustomer(request, request.CustomerId.Value);
             else

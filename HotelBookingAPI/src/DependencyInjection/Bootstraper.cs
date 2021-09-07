@@ -15,9 +15,6 @@ namespace DependencyInjection
         {
             services.AddMediatR(typeof(GetReservationQuery).GetTypeInfo().Assembly);
 
-            //services.AddDefaultAWSOptions(configuration.GetAWSOptions());
-            //services.AddAWSService<IAmazonDynamoDB>();
-
             var dynamoDbConfig = configuration.GetSection("DynamoDb");
             var runLocalDynamoDb = dynamoDbConfig.GetValue<bool>("LocalMode");
 

@@ -49,7 +49,7 @@ namespace Application.CommandHandlers.Reservations
                     EndDate = request.EndDate,
                 }, request.RoomId);
 
-            if (reservationsAtSameInterval.Items.Where(x => x.CustomerId != request.CustomerId).Count() > 0)
+            if (reservationsAtSameInterval?.Items?.Where(x => x.CustomerId != request.CustomerId).Count() > 0)
                 throw new CustomNotificationException(HttpStatusCode.Conflict,
                     $"A reservation at the same interval was already requested to another user at the room {request.RoomId}");
 
