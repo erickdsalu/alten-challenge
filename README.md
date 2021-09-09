@@ -26,7 +26,7 @@ Execute migrate-tables.ps1 (PowerShell) or migrate-tables.sh (Shell) script for 
 At the solution folder we can run the Web API project
 
 ```
-dotnet run --project src/Webdotnet run --project src/Web
+dotnet run --project src/Web
 ```
 ## Discovering API
 
